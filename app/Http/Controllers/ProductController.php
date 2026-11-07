@@ -22,11 +22,6 @@ class ProductController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        return view('products.create', ['categories' => Category::orderBy('name')->get()]);
-    }
-
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -95,5 +90,23 @@ class ProductController extends Controller
             'price_per_stick' => ['nullable', 'numeric', 'min:0'],
             'reorder_level'   => ['required', 'integer', 'min:0'],
         ];
+    }
+
+    private function createFor(string $categoryName, string $view)
+    {
+        $category = Category::where('name', $categoryName)->firstOrFail();
+        return view($view, compact('category'));
+    }
+
+    public function createCigarette() { 
+        return $this->createFor('Cigarettes', 'products.create-cigarette'); 
+    }
+
+    public function createSoftdrink() { 
+        return $this->createFor('Softdrinks', 'products.create-softdrink'); 
+    }
+
+    public function createBiscuit()   { 
+        return $this->createFor('Biscuits',   'products.create-biscuit'); 
     }
 }

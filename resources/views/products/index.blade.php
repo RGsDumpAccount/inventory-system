@@ -4,8 +4,11 @@
 @section('content')
 <div class="flex items-center justify-between mb-4">
     <h1 class="text-2xl font-bold">Products</h1>
-    <a href="{{ route('products.create') }}"
-       class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700">+ Add product</a>
+    <div class="flex flex-wrap gap-2">
+        <a href="{{ route('products.create.cigarette') }}" class="bg-indigo-600 text-white px-3 py-2 rounded-lg text-sm font-semibold">+ Cigarettes</a>
+        <a href="{{ route('products.create.softdrink') }}" class="bg-indigo-600 text-white px-3 py-2 rounded-lg text-sm font-semibold">+ Softdrink</a>
+        <a href="{{ route('products.create.biscuit') }}" class="bg-indigo-600 text-white px-3 py-2 rounded-lg text-sm font-semibold">+ Biscuits</a>
+    </div>
 </div>
 
 <div class="flex gap-2 mb-4 overflow-x-auto">
@@ -22,7 +25,7 @@
         <div class="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col">
             @if ($p->image_url)
                 <img src="{{ $p->image_url }}" alt="{{ $p->name }}" class="h-32 w-full object-cover">
-            @else
+            @else   
                 <div class="h-32 bg-slate-200 flex items-center justify-center text-3xl">📦</div>
             @endif
 
