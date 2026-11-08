@@ -88,7 +88,7 @@ class ProductController extends Controller
             'cost_price'      => ['required', 'numeric', 'min:0'],
             'price_per_pack'  => ['required', 'numeric', 'min:0'],
             'price_per_stick' => ['nullable', 'numeric', 'min:0'],
-            'reorder_level'   => ['required', 'integer', 'min:0'],
+            'reorder_level'   => ['nullable', 'integer', 'min:0'],
         ];
     }
 

@@ -27,23 +27,9 @@
 
     <div>
         <label class="{{ $label }}">Packs in stock</label>
-    
         <input type="number" id="stockPacks" name="stock_packs" min="0" inputmode="numeric"
-               value="{{ old('stock_packs', 0) }}" class="{{ $input }} text-center text-lg font-semibold">
-    
-        <div class="grid grid-cols-6 gap-2 mt-2">
-            @foreach ([-10, -5, -1, 1, 5, 10] as $n)
-                <button type="button" data-step="{{ $n }}"
-                        class="py-2 rounded-lg border font-semibold text-sm
-                               {{ $n < 0
-                                   ? 'border-red-200 bg-red-50 text-red-700 hover:bg-red-100 active:bg-red-200'
-                                   : 'border-indigo-200 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 active:bg-indigo-200' }}">
-                    {{ $n > 0 ? '+' . $n : $n }}
-                </button>
-            @endforeach
-        </div>
-    
-        <p class="{{ $hint }}">Tap the buttons to add or remove packs, or type the number.</p>
+               value="{{ old('stock_packs') }}" class="{{ $input }}">
+        <p class="{{ $hint }}">Whole packs of 20 sticks.</p>
     </div>
 
     <div class="grid grid-cols-2 gap-3">
@@ -59,17 +45,10 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-2 gap-3">
-        <div>
-            <label class="{{ $label }}">Sell per stick (₱)</label>
-            <input type="number" step="0.01" min="0" name="price_per_stick" value="{{ old('price_per_stick') }}" class="{{ $input }}">
-            <p class="{{ $hint }}">Leave empty if never sold by stick.</p>
-        </div>
-        <div>
-            <label class="{{ $label }}">Low-stock alert (packs)</label>
-            <input type="number" min="0" name="reorder_level" value="{{ old('reorder_level', 2) }}" class="{{ $input }}" required>
-            <p class="{{ $hint }}">Warn me at this many packs.</p>
-        </div>
+    <div>
+        <label class="{{ $label }}">Sell per stick (₱)</label>
+        <input type="number" step="0.01" min="0" name="price_per_stick" value="{{ old('price_per_stick') }}" class="{{ $input }}" required>
+        <p class="{{ $hint }}">Leave empty if never sold by stick.</p>
     </div>
 
     <div class="flex gap-2 pt-2">

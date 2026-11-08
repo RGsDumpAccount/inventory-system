@@ -26,7 +26,7 @@
 
     <div>
         <label class="{{ $label }}">Bottles in stock</label>
-        <input type="number" name="stock_packs" min="0" value="{{ old('stock_packs', 0) }}" class="{{ $input }}">
+        <input type="number" name="stock_packs" min="0" value="{{ old('stock_packs') }}" class="{{ $input }}">
         <p class="{{ $hint }}">Count every bottle, not cases.</p>
     </div>
 
@@ -39,12 +39,6 @@
             <label class="{{ $label }}">Sell per bottle (₱)</label>
             <input type="number" step="0.01" min="0" name="price_per_pack" value="{{ old('price_per_pack') }}" class="{{ $input }}" required>
         </div>
-    </div>
-
-    <div>
-        <label class="{{ $label }}">Low-stock alert (bottles)</label>
-        <input type="number" min="0" name="reorder_level" value="{{ old('reorder_level', 6) }}" class="{{ $input }}" required>
-        <p class="{{ $hint }}">Warn me at this many bottles.</p>
     </div>
 
     <div class="flex gap-2 pt-2">

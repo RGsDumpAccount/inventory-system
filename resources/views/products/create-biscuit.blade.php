@@ -9,7 +9,7 @@
 @endphp
 
 <h1 class="text-2xl font-bold mb-1">Add biscuit</h1>
-<p class="text-sm text-slate-500 mb-4">Sold by a single pack of biscuit</p>
+<p class="text-sm text-slate-500 mb-4">Sold by a single pack of biscuit.</p>
 
 <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data"
       class="bg-white rounded-xl shadow-sm p-5 space-y-4 max-w-xl">
@@ -26,7 +26,7 @@
 
     <div>
         <label class="{{ $label }}">Biscuit in stock</label>
-        <input type="number" name="stock_packs" min="0" value="{{ old('stock_packs', 0) }}" class="{{ $input }}">
+        <input type="number" name="stock_packs" min="0" value="{{ old('stock_packs') }}" class="{{ $input }}">
         <p class="{{ $hint }}">Count the biscuits in a pack.</p>
     </div>
 
@@ -39,12 +39,6 @@
             <label class="{{ $label }}">Sell per biscuit (₱)</label>
             <input type="number" step="0.01" min="0" name="price_per_pack" value="{{ old('price_per_pack') }}" class="{{ $input }}" required>
         </div>
-    </div>
-
-    <div>
-        <label class="{{ $label }}">Low-stock alert (biscuits)</label>
-        <input type="number" min="0" name="reorder_level" value="{{ old('reorder_level', 20) }}" class="{{ $input }}" required>
-        <p class="{{ $hint }}">Warn me at this many biscuits.</p>
     </div>
 
     <div class="flex gap-2 pt-2">

@@ -6,7 +6,7 @@
     <h1 class="text-2xl font-bold">Products</h1>
     <div class="flex flex-wrap gap-2">
         <a href="{{ route('products.create.cigarette') }}" class="bg-indigo-600 text-white px-3 py-2 rounded-lg text-sm font-semibold">+ Cigarettes</a>
-        <a href="{{ route('products.create.softdrink') }}" class="bg-indigo-600 text-white px-3 py-2 rounded-lg text-sm font-semibold">+ Softdrink</a>
+        <a href="{{ route('products.create.softdrink') }}" class="bg-indigo-600 text-white px-3 py-2 rounded-lg text-sm font-semibold">+ Softdrinks</a>
         <a href="{{ route('products.create.biscuit') }}" class="bg-indigo-600 text-white px-3 py-2 rounded-lg text-sm font-semibold">+ Biscuits</a>
     </div>
 </div>
